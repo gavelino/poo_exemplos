@@ -2,16 +2,17 @@ package poo.exemplos.geral;
 
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Arrays;
 
-public class ArrayDinamico implements EstruturaDinamica {
+public class ArrayDinamico<Generic extends Comparable<Generic>> implements EstruturaDinamica<Generic>  {
 	int size=0;
-	Object array[];
-	
+	Generic array[];
 	public ArrayDinamico(int tamanhoInicial) {
-		array = new Object[tamanhoInicial];
+		array = (Generic[]) new Object[tamanhoInicial];
 	}
 	
 	public static void main(String[] args) {
+		/*
 		//ArrayDinamico meuArray = new ArrayDinamico(10);
 		List<Pessoa> meuArray = new ArrayList<Pessoa>();
 //		List meuArray = new ArrayList();
@@ -27,10 +28,20 @@ public class ArrayDinamico implements EstruturaDinamica {
 		for (int i = 0; i < meuArray.size(); i++) {
 			System.out.print(meuArray.get(i).getNome());
 		}
+		*/
+		ArrayDinamico<Pessoa> array = new ArrayDinamico<Pessoa>(10);
+		
+		array.add(0, new Pessoa("pedro"));
+		array.add(1, new Pessoa("ana"));
+		array.add(2, new Pessoa("joao"));
+		array.add(3, new Pessoa("jose"));
+		for (int i = 0; i < array.size(); i++) {
+			System.out.println(array.get(i).getNome());
+		}
 	}
 	
 	@Override
-	public void add(int indice, Object obj) {
+	public void add(int indice, Generic obj) {
 		if(indice>=array.length) 
 			resize(indice);
 			
@@ -42,7 +53,7 @@ public class ArrayDinamico implements EstruturaDinamica {
 	}
 
 	private void resize(int indice) {
-		Object novoArray[] = new Object[indice*2];
+		Generic novoArray[] = (Generic[]) new Object[indice*2];
 		for (int i = 0; i < array.length; i++) {
 			novoArray[i] = array[i];
 		}
@@ -63,7 +74,7 @@ public class ArrayDinamico implements EstruturaDinamica {
 	}
 
 	@Override
-	public Object get(int indice) {
+	public Generic get(int indice) {
 		if (indice>=size)
 			return null;
 		else 

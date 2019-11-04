@@ -1,12 +1,12 @@
 package poo.exemplos.geral;
 
-public interface EstruturaDinamica {
+public interface EstruturaDinamica<Generic> {
 
-		public void add(int indice, Object obj);
+		public void add(int indice, Generic obj);
 		
 		public void remove(int indice);
 		
 		public int size();
 		
-		public Object get(int indice);
+		public Generic get(int indice);
 }
