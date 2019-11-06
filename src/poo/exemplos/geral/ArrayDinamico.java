@@ -29,12 +29,12 @@ public class ArrayDinamico<Generic extends Comparable<Generic>> implements Estru
 			System.out.print(meuArray.get(i).getNome());
 		}
 		*/
-		ArrayDinamico<Pessoa> array = new ArrayDinamico<Pessoa>(10);
+		ArrayDinamico<PessoaOLd> array = new ArrayDinamico<PessoaOLd>(10);
 		
-		array.add(0, new Pessoa("pedro"));
-		array.add(1, new Pessoa("ana"));
-		array.add(2, new Pessoa("joao"));
-		array.add(3, new Pessoa("jose"));
+		array.add(0, new PessoaOLd("pedro"));
+		array.add(1, new PessoaOLd("ana"));
+		array.add(2, new PessoaOLd("joao"));
+		array.add(3, new PessoaOLd("jose"));
 		for (int i = 0; i < array.size(); i++) {
 			System.out.println(array.get(i).getNome());
 		}
